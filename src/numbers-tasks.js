@@ -18,8 +18,9 @@
  *   5, 10 => 50
  *   5, 5  => 25
  */
-function getRectangleArea(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleArea(width, height) {
+  const area = width * height;
+  return area;
 }
 
 /**
@@ -33,8 +34,8 @@ function getRectangleArea(/* width, height */) {
  *   3.14 => 19.729201864543903
  *   0    => 0
  */
-function getCircleCircumference(/* radius */) {
-  throw new Error('Not implemented');
+function getCircleCircumference(radius) {
+  return radius * 2 * Math.PI;
 }
 
 /**
@@ -49,10 +50,11 @@ function getCircleCircumference(/* radius */) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  const avg = value1 / 2 + value2 / 2;
+  return avg;
 }
-
+// console.log('getAverage(5, 5) = ', getAverage(5, 5));
 /**
  * Returns a distance between two points by cartesian coordinates.
  *
@@ -67,9 +69,13 @@ function getAverage(/* value1, value2 */) {
  *   (0,0) (0,1)    => 1
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
+ * d=√((x2 – x1)² + (y2 – y1)²)
  */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
+  const arg1 = x2 - x1;
+  const arg2 = y2 - y1;
+  const decart = Math.hypot(arg1, arg2);
+  return decart;
 }
 
 /**
@@ -84,8 +90,9 @@ function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
-function getLinearEquationRoot(/* a, b */) {
-  throw new Error('Not implemented');
+function getLinearEquationRoot(a, b) {
+  const res = -b / a;
+  return res;
 }
 
 /**
@@ -105,8 +112,23 @@ function getLinearEquationRoot(/* a, b */) {
  *   (0,-1) (1,0)    => π/2
  *   (0,1) (0,1)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+// function getAngleBetweenVectors(x1, y1, x2, y2) {
+//   const scalar = x1 * y1 + x2 * y2;
+//   const m1 = Math.hypot(x1, y1);
+//   const m2 = Math.hypot(x2, y2);
+//   const cos = scalar / (m1 * m2);
+//   const corner = Math.acos(cos);
+//   const res = Math.PI * (corner / 180);
+//   return res;
+// }
+
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const dotProduct = x1 * x2 + y1 * y2;
+  const magnitude1 = Math.sqrt(x1 ** 2 + y1 ** 2);
+  const magnitude2 = Math.sqrt(x2 ** 2 + y2 ** 2);
+  const cosAngle = dotProduct / (magnitude1 * magnitude2);
+  const angleInRadians = Math.acos(cosAngle);
+  return angleInRadians;
 }
 
 /**
@@ -122,8 +144,17 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+// function getLastDigit( value ) {
+//   throw new Error('Not implemented');
+// }
+function getLastDigit(value) {
+  let res;
+  if (value.toString().length > 1) {
+    res = value % 10;
+  } else {
+    res = value;
+  }
+  return res;
 }
 
 /**
