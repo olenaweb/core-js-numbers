@@ -333,9 +333,19 @@ function getFibonacciNumber(index) {
  *   10 => 55 // (1+2+3+...+10)
  *   1  => 1
  */
-function getSumToN(/* n */) {
-  throw new Error('Not implemented');
+function getSumToN(n) {
+  let result;
+  if (n === 1) {
+    result = 1;
+  } else {
+    result = n + getSumToN(n - 1);
+  }
+  return result;
 }
+// function getSumToN(n) {
+//   if (n === 1) return 1;
+//   return n + getSumToN(n - 1);
+// }
 
 /**
  * Returns the sum of the digits of a given number.
@@ -348,10 +358,25 @@ function getSumToN(/* n */) {
  *   202 => 4  // (2+0+2)
  *   5   => 5  // 5
  */
-function getSumOfDigits(/* num */) {
-  throw new Error('Not implemented');
-}
 
+// function getSumOfDigits(num) {
+//   let result = 0;
+//   while (num) {
+//     result += num % 10;
+//     num = Math.floor(num / 10);
+//   }
+//   return result;
+// }
+
+function getSumOfDigits(num) {
+  let result = 0;
+  let sum = 0;
+  sum = num.toString().split('');
+  sum.forEach((item) => {
+    result += parseInt(item, 10);
+  });
+  return result;
+}
 /**
  * Returns true if the given number is a power of two, false otherwise.
  *
