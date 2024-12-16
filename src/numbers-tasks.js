@@ -439,8 +439,15 @@ function numberToStringInBase(number, base) {
  * @example:
  * 12345, 2    => '1.23e+4'
  */
-function toExponential(/* number, fractionDigits */) {
-  throw new Error('Not implemented');
+// function toExponential(/* number, fractionDigits */) {
+//   throw new Error('Not implemented');
+// }
+
+function toExponential(number, fractionDigits) {
+  if (typeof number !== 'number' || typeof fractionDigits !== 'number') {
+    throw new TypeError('Both arguments should be numbers');
+  }
+  return number.toExponential(fractionDigits);
 }
 
 /**
