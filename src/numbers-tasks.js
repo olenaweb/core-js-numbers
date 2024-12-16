@@ -445,7 +445,7 @@ function numberToStringInBase(number, base) {
 
 function toExponential(number, fractionDigits) {
   if (typeof number !== 'number' || typeof fractionDigits !== 'number') {
-    throw new TypeError('Both arguments should be numbers');
+    throw new TypeError('The arguments not numbers');
   }
   return number.toExponential(fractionDigits);
 }
